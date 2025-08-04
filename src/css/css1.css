@@ -1,0 +1,15 @@
+:root {
+  --azul: #2784e2;
+  --rojo: #df5d4e;
+  --amarillo: #d99310;
+  --verde: #32b53a;
+  --titulo: 'Montserrat', sans-serif;
+  --cuerpo: 'Roboto', sans-serif;
+}
+
+body {
+  font-family: var(--cuerpo);
+}
+h1, h2, h3 {
+  font-family: var(--titulo);
+}
