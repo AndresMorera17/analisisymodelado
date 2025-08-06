@@ -9,6 +9,7 @@ import Productos from "./pages/Productos";
 import Usuarios from "./pages/Usuarios";
 import Reportes from "./pages/Reportes";
 import Inicio from "./pages/Inicio";
+import Ventas from "./pages/Ventas";
 
 import "./css/css1.css";
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/productos" element={<Productos />} />
           <Route path="/usuarios" element={<Usuarios />} />
           <Route path="/reportes" element={<Reportes />} />
+          <Route path="/ventas" element={<Ventas />} />
         </Routes>
       </div>
       <Footer />

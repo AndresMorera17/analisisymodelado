@@ -13,3 +13,247 @@ body {
 h1, h2, h3 {
   font-family: var(--titulo);
 }
+
+
+
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+body, html, #root {
+  margin: 0; padding: 0; height: 100%;
+  font-family: Arial, sans-serif;
+  background: #f5f5f7;
+}
+.pos-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+/* Header */
+.pos-header {
+  background-color: #004080;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+.pos-header .left, .pos-header .right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.btn-logout {
+  background-color: #c9302c;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.btn-logout:hover {
+  background-color: #a02622;
+}
+
+/* Main content */
+.pos-main {
+  flex: 1;
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Left panel - Productos */
+.pos-products {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: inset 0 0 5px #ddd;
+}
+.pos-products h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #004080;
+}
+.product-inputs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.product-inputs input[type="text"],
+.product-inputs input[type="number"] {
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline-offset: 2px;
+  outline-color: #004080;
+}
+.product-inputs button {
+  background-color: #004080;
+  color: white;
+  border: none;
+  padding: 0 18px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.product-inputs button:hover {
+  background-color: #0059b3;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+th, td {
+  padding: 10px 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+th {
+  background-color: #e0e7ff;
+  color: #003366;
+  font-weight: 600;
+}
+.qty-input {
+  width: 50px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 4px;
+}
+.remove-btn {
+  background: #d9534f;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.remove-btn:hover {
+  background: #c9302c;
+}
+
+/* Right panel - Resumen y pago */
+.pos-summary {
+  flex: 1.5;
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: inset 0 0 5px #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pos-summary h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #004080;
+}
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.summary-row.total {
+  font-weight: 700;
+  font-size: 20px;
+  color: #004080;
+}
+
+.payment-methods {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.payment-methods label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #003366;
+}
+.payment-methods select, 
+.payment-methods input {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline-offset: 2px;
+  outline-color: #004080;
+  width: 100%;
+  box-sizing: border-box;
+}
+.finalize-btn {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.finalize-btn:hover {
+  background-color: #218838;
+}
+
+/* Cliente info */
+.client-info {
+  margin-top: 20px;
+  background: #e9f0ff;
+  padding: 15px;
+  border-radius: 6px;
+  color: #004080;
+  font-weight: 600;
+}
+.client-info input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline-offset: 2px;
+  outline-color: #004080;
+}
+
+/* Footer */
+.pos-footer {
+  background-color: #004080;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Scroll for product table */
+.products-table-wrapper {
+  overflow-y: auto;
+  flex-grow: 1;
+  min-height: 0;
+  margin-bottom: 10px;
+}
+
