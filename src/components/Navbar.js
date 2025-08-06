@@ -24,19 +24,46 @@ function Navbar() {
               <Link className="nav-link" to="/inicio">Inicio</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/dashboard">Dashboard</Link> {/* <- Aquí se agrega */}
+              <Link className="nav-link" to="/dashboard">Dashboard</Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/productos">Productos</Link>
+            <li className="nav-item dropdown">
+              <button
+                className="nav-link dropdown-toggle btn btn-link"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Productos
+              </button>
+              <ul className="dropdown-menu">
+                <li><Link className="dropdown-item" to="/productos">Ver Productos</Link></li>
+                <li><Link className="dropdown-item" to="/productos/nuevo">Agregar Producto</Link></li>
+              </ul>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/usuarios">Usuarios</Link>
+
+            <li className="nav-item dropdown">
+              <button
+                className="nav-link dropdown-toggle btn btn-link"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Usuarios
+              </button>
+              <ul className="dropdown-menu">
+                <li><Link className="dropdown-item" to="/usuarios">Ver Usuarios</Link></li>
+                <li><Link className="dropdown-item" to="/usuarios/nuevo">Agregar Usuario</Link></li>
+              </ul>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/reportes">Reportes</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/ventas">Ventas</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/Configuracion">Configuracion</Link>
             </li>
           </ul>
         </div>
