@@ -37,7 +37,6 @@ body, html, #root {
   background: white;
   box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
-/* Header */
 .pos-header {
   background-color: #004080;
   color: white;
@@ -66,7 +65,6 @@ body, html, #root {
   background-color: #a02622;
 }
 
-/* Main content */
 .pos-main {
   flex: 1;
   display: flex;
@@ -74,7 +72,6 @@ body, html, #root {
   gap: 20px;
 }
 
-/* Left panel - Productos */
 .pos-products {
   flex: 3;
   display: flex;
@@ -153,7 +150,6 @@ th {
   background: #c9302c;
 }
 
-/* Right panel - Resumen y pago */
 .pos-summary {
   flex: 1.5;
   background: #fafafa;
@@ -219,7 +215,6 @@ th {
   background-color: #218838;
 }
 
-/* Cliente info */
 .client-info {
   margin-top: 20px;
   background: #e9f0ff;
@@ -239,7 +234,6 @@ th {
   outline-color: #004080;
 }
 
-/* Footer */
 .pos-footer {
   background-color: #004080;
   color: white;
@@ -249,7 +243,6 @@ th {
   font-weight: 600;
 }
 
-/* Scroll for product table */
 .products-table-wrapper {
   overflow-y: auto;
   flex-grow: 1;
