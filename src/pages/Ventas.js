@@ -1,4 +1,5 @@
 import React from 'react';
+import icon from '../icons/icon_8.png';
 
 export default function PuntoDeVenta() {
   return (
@@ -9,12 +10,11 @@ export default function PuntoDeVenta() {
         </div>
         <div className="right" aria-label="Información usuario">
           <span>{new Date().toLocaleDateString()} {new Date().toLocaleTimeString()}</span>
-          <span>Cajero: Nolan Velásquez</span>
-          <button
-            aria-label="Cerrar sesión"
-            title="Cerrar sesión"
-            className="btn-logout"
-          >
+          <span>
+            <img src={icon} alt="" style={{ width: '40px', height: '40px', marginRight: '5px' }} />
+            Cajero: Nolan Velásquez
+          </span>
+          <button aria-label="Cerrar sesión" title="Cerrar sesión" className="btn-logout">
             Salir
           </button>
         </div>
@@ -30,13 +30,12 @@ export default function PuntoDeVenta() {
               placeholder="Escanea o ingresa código de producto"
               aria-label="Código de producto"
             />
-            <input
-              type="number"
-              defaultValue="1"
-              min="1"
-              aria-label="Cantidad"
-            />
+            <input type="number" defaultValue="1" min="1" aria-label="Cantidad" />
             <button aria-label="Agregar producto">Agregar</button>
+            <button aria-label="Limpiar productos">Limpiar productos</button>
+            <button aria-label="Cancelar venta" style={{ backgroundColor: '#d9534f', color: 'white' }}>
+              Cancelar venta
+            </button>
           </div>
 
           <div className="products-table-wrapper" tabIndex={0}>
@@ -50,6 +49,7 @@ export default function PuntoDeVenta() {
                   <th scope="col">Descuento</th>
                   <th scope="col">Subtotal</th>
                   <th scope="col">Eliminar</th>
+                  <th scope="col">Estado Stock</th>
                 </tr>
               </thead>
               <tbody>
@@ -69,39 +69,65 @@ export default function PuntoDeVenta() {
                   <td>₡0</td>
                   <td>₡5,000</td>
                   <td>
-                    <button
-                      className="remove-btn"
-                      aria-label="Eliminar filtro de aceite"
-                    >
+                    <button className="remove-btn" aria-label="Eliminar filtro de aceite">
                       X
                     </button>
+                  </td>
+                  <td>
+                    <span style={{ color: 'green', fontWeight: 'bold' }}>Stock alto</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>789012</td>
+                  <td>Aceite motor 5W30</td>
+                  <td>
+                    <input
+                      className="qty-input"
+                      type="number"
+                      min="1"
+                      defaultValue="2"
+                      aria-label="Cantidad aceite motor"
+                    />
+                  </td>
+                  <td>₡12,000</td>
+                  <td>₡500</td>
+                  <td>₡23,500</td>
+                  <td>
+                    <button className="remove-btn" aria-label="Eliminar aceite motor">
+                      X
+                    </button>
+                  </td>
+                  <td>
+                    <span style={{ color: 'orange', fontWeight: 'bold' }}>Stock bajo</span>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </section>
+
         <aside className="pos-summary" aria-label="Resumen y pago">
           <h2>Resumen de la Venta</h2>
+
           <div className="summary-row">
             <span>Total productos:</span>
-            <span>1</span>
+            <span>3</span>
           </div>
           <div className="summary-row">
             <span>Subtotal:</span>
-            <span>₡5,000</span>
+            <span>₡28,500</span>
           </div>
           <div className="summary-row">
             <span>Descuentos:</span>
-            <span>₡0</span>
+            <span>₡500</span>
           </div>
           <div className="summary-row">
             <span>IVA (13%):</span>
-            <span>₡650</span>
+            <span>₡3,705</span>
           </div>
           <div className="summary-row total">
             <span>Total a pagar:</span>
-            <span>₡5,650</span>
+            <span>₡31,705</span>
           </div>
 
           <div className="payment-methods">
@@ -113,49 +139,71 @@ export default function PuntoDeVenta() {
               <option value="mixto">Mixto</option>
             </select>
 
+            <fieldset style={{ marginTop: '10px', border: '1px solid #ccc', padding: '10px' }}>
+              <legend>Métodos de pago (mixto)</legend>
+              <label>
+                Efectivo:
+                <input type="number" min="0" placeholder="₡0" aria-label="Pago en efectivo" />
+              </label>
+              <br />
+              <label>
+                Tarjeta:
+                <input type="number" min="0" placeholder="₡0" aria-label="Pago con tarjeta" />
+              </label>
+            </fieldset>
+
             <label htmlFor="montoRecibido" style={{ marginTop: '10px' }}>
               Monto recibido
             </label>
-            <input
-              id="montoRecibido"
-              type="number"
-              min="0"
-              aria-label="Monto recibido en efectivo"
-              placeholder="₡0"
-            />
+            <input id="montoRecibido" type="number" min="0" aria-label="Monto recibido" placeholder="₡0" />
 
             <div className="summary-row" style={{ marginTop: '10px' }}>
               <span>Cambio:</span>
               <span>₡0</span>
             </div>
 
-            <button className="finalize-btn" aria-label="Finalizar venta">
+            <label htmlFor="descuentoGlobal" style={{ marginTop: '10px' }}>
+              Descuento global
+            </label>
+            <input id="descuentoGlobal" type="number" min="0" placeholder="₡0" aria-label="Descuento global" />
+            <div className="client-info" aria-label="Información del cliente" style={{ marginTop: '30px' }}>
+              <h3>Cliente</h3>
+              <label htmlFor="cliente">Nombre o cédula</label>
+              <input type="text" id="cliente" placeholder="Nombre o cédula" aria-label="Buscar cliente" />
+              <button
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#004080',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '5px',
+                  padding: '8px',
+                  cursor: 'pointer',
+                  fontWeight: 'bold',
+                  width: '100%',
+                }}
+              >
+                Agregar nuevo cliente
+              </button>
+              <div style={{ marginTop: '15px' }}>
+                <p><strong>Teléfono:</strong> 8888-8888</p>
+                <p><strong>Dirección:</strong> Calle Falsa 123</p>
+                <p><strong>Correo:</strong> cliente@ejemplo.com</p>
+              </div>
+            </div>
+            <button
+              className="finalize-btn"
+              aria-label="Finalizar venta"
+              style={{ marginTop: '15px', backgroundColor: '#28a745', color: 'white' }}
+            >
               Finalizar Venta
             </button>
-          </div>
-
-          <div className="client-info" aria-label="Información del cliente">
-            <label htmlFor="cliente">Cliente</label>
-            <input
-              type="text"
-              id="cliente"
-              placeholder="Nombre o cédula"
-              aria-label="Buscar cliente"
-            />
             <button
-              style={{
-                marginTop: '10px',
-                backgroundColor: '#004080',
-                color: 'white',
-                border: 'none',
-                borderRadius: '5px',
-                padding: '8px',
-                cursor: 'pointer',
-                fontWeight: 'bold',
-                width: '100%',
-              }}
+              className="print-btn"
+              aria-label="Imprimir factura"
+              style={{ marginTop: '10px', backgroundColor: '#007bff', color: 'white' }}
             >
-              Agregar nuevo cliente
+              Imprimir Factura
             </button>
           </div>
         </aside>
